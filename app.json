@@ -1,0 +1,48 @@
+{
+  "pages":[
+    "pages/erban/erban",
+    "pages/wuban/wuban",
+    "pages/ershierban/ershierban",
+    "pages/erban2/erban2"
+  ],
+  "window":{
+    "backgroundTextStyle":"light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "伊卡课程表",
+    "navigationBarTextStyle":"black"
+  },
+  "tabBar": {
+    "color": "#666",
+    "selectedColor": "#56abe4",
+    "backgroundColor": "#ddd",
+    "borderStyle": "black",
+    "align-items":"center",
+    "list": [
+      {
+        "iconPath": "images/tabbar/about1.png",
+        "selectedIconPath": "images/tabbar/about2.png",
+        "pagePath": "pages/erban/erban",
+        "text": "电管2班(多媒体)"
+      },
+      {
+        "iconPath": "images/tabbar/about1.png",
+        "selectedIconPath": "images/tabbar/about2.png",
+        "pagePath": "pages/erban2/erban2",
+        "text": "电管2班(通信)"
+      },
+      {
+        "iconPath": "images/tabbar/about1.png",
+        "selectedIconPath": "images/tabbar/about2.png",
+        "pagePath": "pages/wuban/wuban",
+        "text": "电管5班(多媒体)"
+      },
+      {
+        "iconPath": "images/tabbar/about1.png",
+        "selectedIconPath": "images/tabbar/about2.png",
+        "pagePath": "pages/ershierban/ershierban",
+        "text": "物联22班"
+      }
+    ],
+    "position": "bottom"
+  }
+}
