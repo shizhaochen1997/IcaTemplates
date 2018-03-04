@@ -1,6 +1,8 @@
 /**index.wxss**/
 .selection {
   position: relative;
+  width: 750rpx;
+  height: 50rpx;
   display:flex;
   flex-direction: row;
   justify-content: center;
@@ -10,33 +12,37 @@
 }
 
 .week {
+  position: relative;
+  width: 176rpx;
   color:#90C652;
   text-align: center;
   border: 1rpx solid #90C652;
   border-radius: 20rpx;
 }
 
-.weekText {
-  margin-right: 25rpx;
-  margin-left: 25rpx;
-}
-
 .picker {
-  margin-left: 15rpx;
+  position: relative;
+  width: 210rpx;
+  margin-left: 16rpx;
   background-color: #90C652;
   border-radius: 20rpx;
   color: #fff;
+  text-align: center;
 }
 
 .pickerText{
-  margin-left: 25rpx;
-  margin-right: 25rpx;
+  padding-left: 16rpx;
+  width: 176rpx;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
 }
 
 .arrow {
-  height:15rpx;
-  width:25rpx;
-  margin-left: 10rpx;
+  height:16rpx;
+  width:20rpx;
+  margin-left: 16rpx;
 }
 
 .flex-item {
@@ -84,11 +90,12 @@
 }
 
 .left {
-  width: 35rpx;
+  width: 36rpx;
   height: 100rpx;
   font-size: 9pt;
   justify-content: center;
   display: flex;
   flex-direction: column;
   align-items: center;
+  text-align: center;
 }

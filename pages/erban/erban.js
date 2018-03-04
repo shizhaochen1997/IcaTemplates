@@ -68,14 +68,14 @@ Page({
     classList8: [
       { "date": 1, "startNumber": 1, "duration": 2, "subject": "互联网应用@3-437", "weekNumber": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], "color": "#85B8CF"},
       { "date": 1, "startNumber": 3, "duration": 2, "subject": "通原@3-437", "weekNumber": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], "color": "#90C652" },
-      { "date": 1, "startNumber": 7, "duration": 2, "subject": "软件工程@3-437", "weekNumber": [2, 3, 5, 7, 8, 11, 12, 14], "color": "#FC9F9D" },
-      { "date": 2, "startNumber": 1, "duration": 2, "subject": "软件工程@3-437", "weekNumber": [2, 3, 5, 7, 8, 11, 12, 14], "color": "#FC9F9D" },
+      { "date": 1, "startNumber": 7, "duration": 2, "subject": "软件工程@3-437", "weekNumber": [2, 8, 11, 14], "color": "#FC9F9D" },
+      { "date": 2, "startNumber": 1, "duration": 2, "subject": "软件工程@3-437", "weekNumber": [2, 8, 11, 14], "color": "#FC9F9D" },
       { "date": 2, "startNumber": 3, "duration": 2, "subject": "移动互联网@3-435", "weekNumber": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], "color": "#0A9A84"},
-      { "date": 3, "startNumber": 3, "duration": 2, "subject": "软件工程@3-437", "weekNumber": [2, 3, 5, 7, 8, 11, 12, 14], "color": "#FC9F9D" },
+      { "date": 3, "startNumber": 3, "duration": 2, "subject": "软件工程@3-437", "weekNumber": [2, 8, 11, 14], "color": "#FC9F9D" },
       { "date": 4, "startNumber": 1, "duration": 2, "subject": "通原@3-437", "weekNumber": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], "color": "#90C652"},
       { "date": 4, "startNumber": 3, "duration": 2, "subject": "互联网应用@3-437", "weekNumber": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16], "color": "#85B8CF"},
-      { "date": 4, "startNumber": 7, "duration": 2, "subject": "软件工程@3-437", "weekNumber": [2, 3, 5, 7, 8, 11, 12, 14], "color": "#FC9F9D" },
-      { "date": 5, "startNumber": 5, "duration": 2, "subject": "软件工程@3-437", "weekNumber": [2, 3, 5, 7, 8, 11, 12, 14], "color": "#FC9F9D" },
+      { "date": 4, "startNumber": 7, "duration": 2, "subject": "软件工程@3-437", "weekNumber": [2, 8, 11, 14], "color": "#FC9F9D" },
+      { "date": 5, "startNumber": 5, "duration": 2, "subject": "软件工程@3-437", "weekNumber": [2, 8, 11, 14], "color": "#FC9F9D" },
     ],
 
     classList10: [
@@ -97,7 +97,7 @@ Page({
     var time = util.formatTime(new Date());
     var hour = new Date().getHours();
     var minute = new Date().getMinutes();
-    console.log('运行时间', hour,minute);
+    console.log('运行时间', Date());
     if (hour < 8 ) { hour = 0, minute = 0 }
     else if (hour == 8 || hour == 9 || hour == 10 || hour == 11 ) { hour = hour - 8}
     else if (hour == 12 ) {hour = 4, minute = 0}
@@ -117,7 +117,7 @@ Page({
     else if (hour == 19 && minute > 30) { hour = 10, minute = minute - 30 }
     else if (hour == 20 && minute <= 30) { hour = 10, minute = minute + 30 }
     else if (hour == 20 && minute > 30) {hour = 11, minute = 0}
-    else if (hour >= 20 ) {hour = 11, minute = 0}
+    else {hour = 11, minute = 0}
     this.setData({
       hour: hour,
       minute: minute
@@ -146,7 +146,7 @@ Page({
     else if (month == 6 && day > 17 && day < 25) { console.log('第十六周'); weekNow = 15 }
     else if (month == 6 && day > 24 && day < 31) { console.log('第十六周'); weekNow = 15 }
     else if (month >= 7) { console.log('第十六周 学期结束'); weekNow = 15 }
-    else if (month <= 3) { console.log('第一周 没开学'); weekNow = 0 }
+    else { console.log('第一周 没开学'); weekNow = 0 }
     this.setData({
       weekIndex: weekNow
     })  
@@ -157,11 +157,47 @@ Page({
       weekIndex: e.detail.value
     })
   },
-  showCardView: function() {
-    wx.showModal({
-      content: "想看到有关课程的什么内容，请联系我",
-    })
+
+  showCardView: function(event) {
+    console.log(event)
+    if (event.currentTarget.id == "互联网应用@3-437"){
+      wx.showModal({
+        showCancel: false,
+        content: "1-16周 教三-437 \n时岩老师",
+      })
+    }
+    else if (event.currentTarget.id == "通原@3-437"){
+      wx.showModal({
+        showCancel: false,
+        content: '1-16周 教三-437 \n韦再雪老师'
+      })
+    }
+    else if (event.currentTarget.id == "移动互联网@3-435") {
+      wx.showModal({
+        showCancel: false,
+        content: '1-16周 教三-435 \n徐鹏老师'
+      })
+    }
+    else if (event.currentTarget.id == "数字广播@3-437") {
+      wx.showModal({
+        showCancel: false,
+        content: '2,7,10,14周 教三-437 \nFaisal Tariq'
+      })
+    }
+    else if (event.currentTarget.id == "软件工程@3-437") {
+      wx.showModal({
+        showCancel: false,
+        content: '2,8,11,14周 教三-437 \nLing Ma & Matthew Huntbach'
+      })
+    }
+    else if (event.currentTarget.id == "3D设计@3-437") {
+      wx.showModal({
+        showCancel: false,
+        content: '3,5,7,12周 教三-437 \nMarie-luce Bourguet'
+      })
+    }
   },
+
   onShareAppMessage: function () {
     return {
       title: '伊卡课程表',

@@ -1,10 +1,8 @@
 <!--index.wxml-->
-<view class="wrapper">
+<view class="top">
   <view class="selection">
     <view class="week">
-      <view class="weekText">
       当前周数
-      </view>
     </view> 
     <picker class="picker" bindchange="bindPickerChange" value="{{weekIndex}}" range="{{weekList}}">  
       <view class="pickerText">
@@ -16,69 +14,69 @@
   <view class="day">
     <view wx:for="{{['一','二','三','四','五','六','日']}}" wx:key="key" class="top-text">周{{item}}</view>
   </view>
-  <scroll-view scroll-y="true" class="scroll">
-    <view style="height:1400rpx;width:730rpx;display:flex;">
-      <view style="background-color:#D2E6B3;color:#7cba23;">
-        <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}"  wx:key="key"class="left">
-          {{item}}
-        </view>
-      </view>
-      <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" wx:key="key">
-        <view style="width:750rpx; margin-top:{{(hour)*100+(minute/60)*100}}rpx; position:absolute; z-index:2; border-bottom:1rpx solid 	#FF7F50;">
-        </view>
-        <view style="width:750rpx;margin-top:{{(index+1)*100}}rpx;  position: absolute;border-bottom:1rpx solid #D3D3D3;">
-        </view>
-      </view>
-
-      <!--课表-->
-      <view wx:if="{{weekIndex==0||weekIndex==3||weekIndex==5||weekIndex==8||weekIndex==12||weekIndex==14||weekIndex==15}}">
-        <view wx:for="{{classList1}}" wx:key="key">
-          <view class="flex-item templates-item" bindtap="showCardView" data-statu="open" data-index="{{index}}" style="margin-left:{{(item.date-1)*100}}rpx;margin-top:{{(item.startNumber-1)*100+5}}rpx;height:{{item.duration*100-5}}rpx;background-color:{{item.color}}">
-            <view class="smalltext" >{{item.subject}}</view>
-          </view>
-        </view>
-      </view>
-
-      <view wx:if="{{weekIndex==1||weekIndex==13}}">
-        <view wx:for="{{classList2}}" wx:key="key">
-          <view class="flex-item templates-item" bindtap="showCardView" data-statu="open" data-index="{{index}}" style="margin-left:{{(item.date-1)*100}}rpx;margin-top:{{(item.startNumber-1)*100+5}}rpx;height:{{item.duration*100-5}}rpx;background-color:{{item.color}}">
-            <view class="smalltext" >{{item.subject}}</view>
-          </view>
-        </view>
-      </view>
-
-      <view wx:if="{{weekIndex==2||weekIndex==4||weekIndex==11}}">
-        <view wx:for="{{classList3}}" wx:key="key">
-          <view class="flex-item templates-item" bindtap="showCardView" data-statu="open" data-index="{{index}}" style="margin-left:{{(item.date-1)*100}}rpx;margin-top:{{(item.startNumber-1)*100+5}}rpx;height:{{item.duration*100-5}}rpx;background-color:{{item.color}}">
-            <view class="smalltext" >{{item.subject}}</view>
-          </view>
-        </view>
-      </view>
-
-      <view wx:if="{{weekIndex==6}}">
-        <view wx:for="{{classList7}}" wx:key="key">
-          <view class="flex-item templates-item" bindtap="showCardView" data-statu="open" data-index="{{index}}" style="margin-left:{{(item.date-1)*100}}rpx;margin-top:{{(item.startNumber-1)*100+5}}rpx;height:{{item.duration*100-5}}rpx;background-color:{{item.color}}">
-            <view class="smalltext" >{{item.subject}}</view>
-          </view>
-        </view>
-      </view>
-
-      <view wx:if="{{weekIndex==7||weekIndex==10}}">
-        <view wx:for="{{classList8}}" wx:key="key">
-          <view class="flex-item templates-item" bindtap="showCardView" data-statu="open" data-index="{{index}}" style="margin-left:{{(item.date-1)*100}}rpx;margin-top:{{(item.startNumber-1)*100+5}}rpx;height:{{item.duration*100-5}}rpx;background-color:{{item.color}}">
-            <view class="smalltext" >{{item.subject}}</view>
-          </view>
-        </view>
-      </view>
-
-      <view wx:if="{{weekIndex==9}}">
-        <view wx:for="{{classList10}}" wx:key="key">
-          <view class="flex-item templates-item" bindtap="showCardView" data-statu="open" data-index="{{index}}" style="margin-left:{{(item.date-1)*100}}rpx;margin-top:{{(item.startNumber-1)*100+5}}rpx;height:{{item.duration*100-5}}rpx;background-color:{{item.color}}">
-            <view class="smalltext" >{{item.subject}}</view>
-          </view>
-        </view>
-      </view>
-      
-    </view>
-  </scroll-view>
 </view>
+<scroll-view scroll-y="true" class="scroll">
+  <view style="height:1400rpx;width:730rpx;display:flex;">
+    <view style="background-color:#D2E6B3;color:#7cba23;">
+      <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" wx:key="key" class="left">
+        {{item}}
+      </view>
+    </view>
+    <view wx:for="{{[1,2,3,4,5,6,7,8,9,10,11,12]}}" wx:key="key">
+      <view style="width:750rpx; margin-top:{{(hour)*100+(minute/60)*100}}rpx; position:absolute; z-index:2; border-bottom:1rpx solid 	#FF7F50;">
+      </view>
+      <view style="width:750rpx;margin-top:{{(index+1)*100}}rpx;  position: absolute;border-bottom:1rpx solid #D3D3D3;">
+      </view>
+    </view>
+
+    <!--课表-->
+    <view wx:if="{{weekIndex==0||weekIndex==3||weekIndex==5||weekIndex==8||weekIndex==12||weekIndex==14||weekIndex==15}}">
+      <view wx:for="{{classList1}}" wx:key="key">
+        <view class="flex-item templates-item" bindtap="showCardView" data-statu="open" data-index="{{index}}" style="margin-left:{{(item.date-1)*100}}rpx;margin-top:{{(item.startNumber-1)*100+5}}rpx;height:{{item.duration*100-5}}rpx;background-color:{{item.color}}">
+          <view class="smalltext" >{{item.subject}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{weekIndex==1||weekIndex==13}}">
+      <view wx:for="{{classList2}}" wx:key="key">
+        <view class="flex-item templates-item" bindtap="showCardView" data-statu="open" data-index="{{index}}" style="margin-left:{{(item.date-1)*100}}rpx;margin-top:{{(item.startNumber-1)*100+5}}rpx;height:{{item.duration*100-5}}rpx;background-color:{{item.color}}">
+          <view class="smalltext" >{{item.subject}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{weekIndex==2||weekIndex==4||weekIndex==11}}">
+      <view wx:for="{{classList3}}" wx:key="key">
+        <view class="flex-item templates-item" bindtap="showCardView" data-statu="open" data-index="{{index}}" style="margin-left:{{(item.date-1)*100}}rpx;margin-top:{{(item.startNumber-1)*100+5}}rpx;height:{{item.duration*100-5}}rpx;background-color:{{item.color}}">
+          <view class="smalltext" >{{item.subject}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{weekIndex==6}}">
+      <view wx:for="{{classList7}}" wx:key="key">
+        <view class="flex-item templates-item" bindtap="showCardView" data-statu="open" data-index="{{index}}" style="margin-left:{{(item.date-1)*100}}rpx;margin-top:{{(item.startNumber-1)*100+5}}rpx;height:{{item.duration*100-5}}rpx;background-color:{{item.color}}">
+          <view class="smalltext" >{{item.subject}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{weekIndex==7||weekIndex==10}}">
+      <view wx:for="{{classList8}}" wx:key="key">
+        <view class="flex-item templates-item" bindtap="showCardView" data-statu="open" data-index="{{index}}" style="margin-left:{{(item.date-1)*100}}rpx;margin-top:{{(item.startNumber-1)*100+5}}rpx;height:{{item.duration*100-5}}rpx;background-color:{{item.color}}">
+          <view class="smalltext" >{{item.subject}}</view>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{weekIndex==9}}">
+      <view wx:for="{{classList10}}" wx:key="key">
+        <view class="flex-item templates-item" bindtap="showCardView" data-statu="open" data-index="{{index}}" style="margin-left:{{(item.date-1)*100}}rpx;margin-top:{{(item.startNumber-1)*100+5}}rpx;height:{{item.duration*100-5}}rpx;background-color:{{item.color}}">
+          <view class="smalltext" >{{item.subject}}</view>
+        </view>
+      </view>
+    </view>
+    
+  </view>
+</scroll-view>

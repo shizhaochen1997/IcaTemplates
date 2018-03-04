@@ -80,7 +80,7 @@ Page({
     var time = util.formatTime(new Date());
     var hour = new Date().getHours();
     var minute = new Date().getMinutes();
-    console.log('运行时间', hour, minute);
+    console.log('运行时间', Date());
     if (hour < 8) { hour = 0, minute = 0 }
     else if (hour == 8 || hour == 9 || hour == 10 || hour == 11) { hour = hour - 8 }
     else if (hour == 12) { hour = 4, minute = 0 }
@@ -100,7 +100,7 @@ Page({
     else if (hour == 19 && minute > 30) { hour = 10, minute = minute - 30 }
     else if (hour == 20 && minute <= 30) { hour = 10, minute = minute + 30 }
     else if (hour == 20 && minute > 30) { hour = 11, minute = 0 }
-    else if (hour >= 20) { hour = 11, minute = 0 }
+    else { hour = 11, minute = 0 }
     this.setData({
       hour: hour,
       minute: minute
@@ -129,10 +129,10 @@ Page({
     else if (month == 6 && day > 17 && day < 25) { console.log('第十六周'); weekNow = 15 }
     else if (month == 6 && day > 24 && day < 31) { console.log('第十六周'); weekNow = 15 }
     else if (month >= 7) { console.log('第十六周 学期结束'); weekNow = 15 }
-    else if (month <= 3) { console.log('第一周 没开学'); weekNow = 0 }
+    else { console.log('第一周 没开学'); weekNow = 0 }
     this.setData({
       weekIndex: weekNow
-    })
+    })  
   },
 
   bindPickerChange: function (e) {
@@ -140,7 +140,7 @@ Page({
       weekIndex: e.detail.value
     })
   },
-  showCardView: function () {
+  showCardView: function (cardName) {
     wx.showModal({
       content: "想看到有关课程的什么内容，请联系我",
     })
@@ -148,13 +148,13 @@ Page({
   onShareAppMessage: function () {
     return {
       title: '伊卡课程表',
-      desc: '电管二班课程表!',
-      path: '/pages/erban/erban?id=3',
+      desc: '电管二班（通信）课程表!',
+      path: '/pages/erban2/erban2?id=3',
       success: function (res) {
-        console.log("二班分享成功")
+        console.log("二班(通信)分享成功")
       },
       fail: function (res) {
-        console.log("二班分享失败")
+        console.log("二班（通信）分享失败")
       }
     }
   }
